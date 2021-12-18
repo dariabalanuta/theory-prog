@@ -22,13 +22,13 @@ jobs:
       - uses: actions/setup-python@v1
         with:
          python-version: '3.8'
-         architecture: 'x64'
-      - name: Install requirements
-         # Устанавливаем зависимости
-        run: pip install -r requirements.txt
-      - name: Run tests
-        run: coverage run src/tests.py
-      - name: Tests report
+      - name: Run test_function
+        run: coverage run src/test_function.py
+      - name: Run report test_functions
+        run: coverage report
+      - name: Run test_speed
+        run: coverage run src/test_speed.py
+      - name: Run report test_speed
         run: coverage report
 
 
