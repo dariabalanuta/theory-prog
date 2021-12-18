@@ -19,11 +19,11 @@
 *Для получения оценки "1"*: Завела репозиторий `https://github.com/dariabalanuta/theory-prog`. Оформила простейший *README.md*(https://github.com/dariabalanuta/theory-prog/blob/main/README.md). Загрузила в репозиторий файлы своего мини-проекта (код, тесты, *README.md*).
 
 *Для получения оценки "2"*: Подключила к вашему проекту любую CI-систему. Обеспечила возможность запуска тестов в ручном режиме. 
-Вот запуска:
-[![Build Status](https://github.com/dariabalanuta/theory-prog/actions/workflows/python-package.yml/badge.svg?event=pull_request)](https://github.com/dariabalanuta/theory-prog/actions/workflows/python-package.yml)
 
 **Для получения оценки "3"**: настройте CI таким образом, чтобы прогон тестов запускался автоматически при любом новом коммите в репозиторий вашего проекта
 
-**Для получения оценки "4"**: сделайте интеграцию CI-системы и вашего репозитория на GitHub: сделайте бэйдж в *README.md*, который будет показывать текущий статус тестов. Для информации смотрите [тут](https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/adding-a-workflow-status-badge), [тут](https://www.codeblocq.com/2016/04/Add-a-build-passing-badge-to-your-github-repository/) или в аналогичном доке для выбранной вами CI-системы.  Как выглядят бэйджи в целом, можно посмотреть в любом проекте на GitHub, где они сделаны, например, в [репозитории Telegram](https://github.com/telegramdesktop/tdesktop).
+**Для получения оценки "4"**: сделайте интеграцию CI-системы и вашего репозитория на GitHub: сделайте бэйдж в *README.md*, который будет показывать текущий статус тестов. 4
+### Вот: 
+[![Build Status](https://github.com/dariabalanuta/theory-prog/actions/workflows/python-package.yml/badge.svg)](https://github.com/dariabalanuta/theory-prog/actions/workflows/python-package.yml)
 
 **Для получения оценки "5"**: сделайте любую интеграцию CI-системы и какого-либо мессенджера (например, *telegram*, *slack*, *msteams* и т.п.). Настройте систему так, чтобы при успешном прохождении теста посылалось сообщение "все ок", при неуспешном - посылалась информация, какие именно тесты не пройдены
