@@ -5,7 +5,7 @@ name: Test bot
 
 on:
   push:
-    branches: 'master'
+    branches: [ master ]
 
 jobs:
   check-publish:
