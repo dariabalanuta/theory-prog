@@ -1,33 +1,24 @@
-before_script:
-  - apt update -y
-  - apt install -y python3 python3.pip
-  - pip3 install -r requarements.txt
-  - gem install -y dpl 
-stages:          # List of stages for jobs, and their order of execution
-  - lint
-  - test
-  - deploy
+ame: Code checks
 
-run-lint:       # This job runs in the build stage, which runs first.
-  stage: lint
-  script:
-    - tz.py test_functions.py 
-    - test_speed.py
+on: 
+  push:
+    branches: [ master ]
+  pull_reguest:
+    branches: [ master ]
 
-run-pytest:   # This job runs in the test stage.
-  stage: test    # It only starts when the job in the build stage completes successfully.
-  script:
-    - pytest
-    - echo "Running tests... This will take about 60 seconds."
-
-test_speed:   # This job also runs in the test stage.
-  stage: test    # It can run at the same time as unit-test-job (in parallel).
-  script:
-    - echo "Speed... This will take about 10 seconds."
-
-deploy-to-heroku:      # This job runs in the deploy stage.
-  stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
-  script:
-    - echo "Deploying application..."
-    - dpl --provider=heroku --app=$HEROKU_APP_PRODUCTION --api-key=$HEROKU_API_KEY
-    - echo "Application successfully deployed."
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v2
+      - name: Install python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run flake8
+        run: flake8
+      - name: Run mypy
