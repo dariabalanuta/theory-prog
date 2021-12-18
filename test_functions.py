@@ -43,7 +43,7 @@ def min_number(number):
 def test_min_number():
     number = ([1, 2, 4])
     assert min_number(number) == 1
-    assert min_number([1, -1, -2]) == -3
+    assert min_number([1, -1, -2]) == -2
 
 
 
