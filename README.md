@@ -26,4 +26,6 @@
 ### Вот: 
 [![Build Status](https://github.com/dariabalanuta/theory-prog/actions/workflows/python-package.yml/badge.svg)](https://github.com/dariabalanuta/theory-prog/actions/workflows/python-package.yml)
 
-**Для получения оценки "5"**: Сделала интеграцию CI-системы и Телеграм. 
+**Для получения оценки "5"**: Сделала интеграцию CI-системы и Телеграм. Так как идет проверка кода на разных версиях питона, то выводит 3 ответа. 
+❌ *The job has been failed!*            ✅ *The job has been completed.*
+## [Ссылка на бота](https://t.me/proga3_bot)
