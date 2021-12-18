@@ -45,8 +45,7 @@ jobs:
         to: ${{ secrets.TELEGRAM_CHAT_ID }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
         message: ✅ *The job has been completed.*
-            #️⃣ Run # ${{github.run_number}}. Event type: *${{ github.event_name }}*
-            🧑‍💻 Developer: *${{github.actor}}*
+            
     - name: negative
       uses: appleboy/telegram-action@master
       if: ${{ failure() }}
@@ -54,6 +53,5 @@ jobs:
         to: ${{ secrets.TELEGRAM_CHAT_ID }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
         message: ❌ *The job has been failed!*
-            #️⃣ Run # ${{github.run_number}}. Event type: *${{ github.event_name }}*
-            🧑‍💻 Developer: *${{github.actor}}*
+
 
