@@ -20,7 +20,7 @@
 
 *Для получения оценки "2"*: Подключила к вашему проекту любую CI-систему. Обеспечила возможность запуска тестов в ручном режиме. 
 Вот запуска:
-[![Build Status](https://github.com/dariabalanuta/theory-prog/actions/workflows/python-package.yml/badge.svg?branch=master)](https://github.com/dariabalanuta/theory-prog/actions/workflows/python-package.yml)
+[![Build Status](https://github.com/dariabalanuta/theory-prog/actions/workflows/python-package.yml/badge.svg?event=pull_request)](https://github.com/dariabalanuta/theory-prog/actions/workflows/python-package.yml)
 
 **Для получения оценки "3"**: настройте CI таким образом, чтобы прогон тестов запускался автоматически при любом новом коммите в репозиторий вашего проекта
 
