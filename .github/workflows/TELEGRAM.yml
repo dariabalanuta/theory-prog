@@ -23,7 +23,8 @@ jobs:
     - name: "edit conf"
       run: git config --global user.email "dariabalanuta@gmail.com" && git config --global user.name "dariabalanuta"
     - name: "version patch"
-      run: npm version 0.1.$GITHUB_RUN_ID     
+      run: npm version 0.1.$GITHUB_RUN_ID  
+      
     - name: "Install dependencies"
       run: npm install
     - name: "Npl publish"
