@@ -1,34 +1,33 @@
-name: CI
+before_script:
+  - apt update -y
+  - apt install -y python3 python3.pip
+  - pip3 install -r requarements.txt
+  - gem install -y dpl 
+stages:          # List of stages for jobs, and their order of execution
+  - lint
+  - test
+  - deploy
 
-on:
-  # Triggers the workflow on push or pull request events but only for the main branch
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+run-lint:       # This job runs in the build stage, which runs first.
+  stage: lint
+  script:
+    - tz.py test_functions.py 
+    - test_speed.py
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+run-pytest:   # This job runs in the test stage.
+  stage: test    # It only starts when the job in the build stage completes successfully.
+  script:
+    - pytest
+    - echo "Running tests... This will take about 60 seconds."
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
-jobs:
-  # This workflow contains a single job called "build"
-  build:
-    runs-on: ubuntu-latest
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v1
-        with:
-         python-version: '3.8'
-      - name: Run test_functions
-        run: coverage run src/test_functions.py
-      - name: Run report test_functions
-        run: coverage report
-      - name: Run test_speed
-        run: coverage run src/test_speed.py
-      - name: Run report test_speed
-        run: coverage report
+test_speed:   # This job also runs in the test stage.
+  stage: test    # It can run at the same time as unit-test-job (in parallel).
+  script:
+    - echo "Speed... This will take about 10 seconds."
 
-
+deploy-to-heroku:      # This job runs in the deploy stage.
+  stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
+  script:
+    - echo "Deploying application..."
+    - dpl --provider=heroku --app=$HEROKU_APP_PRODUCTION --api-key=$HEROKU_API_KEY
+    - echo "Application successfully deployed."
