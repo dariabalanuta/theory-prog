@@ -40,33 +40,12 @@ jobs:
         pytest
 
 
-  check-publish:
-    name: "Test job"
+  notify:
+    name: Notify via Telegram
     runs-on: ubuntu-latest
     steps:
-    - name: "checkout source code"
-      uses: actions/checkout@v2
-    - name: Set up Node.js
-      uses: actions/setup-node@v1
-      with:
-        node-version: 12
-        registry-url: https://registry/npmjs.org/
-
-    - name: "edit conf"
-      run: git config --global user.email "dariabalanuta@gmail.com" && git config --global user.name "dariabalanuta"
-    - name: "version patch"
-      run: npm version 0.1.$GITHUB_RUN_ID  
-
-    - name: "Install dependencies"
-      run: npm install
-    - name: "Npl publish"
-      run: npm publish
-      env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-
-    - name: "telegram Notifications"
-      uses: "appleboy/telegram-action@master"
-      with:
-        to: ${{secrets.TELEGRAM_CHAT_ID}}
-        token: ${{secrets.NPM_TOKEN}}
-        args: все ok, пирожочек
+      - name: Send message to Telegram
+        uses: Lukasss93/telegram-action@v2
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT: ${{ secrets.TELEGRAM_CHAT_ID }}
