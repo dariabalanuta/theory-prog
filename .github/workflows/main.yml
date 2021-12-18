@@ -22,8 +22,8 @@ jobs:
       - uses: actions/setup-python@v1
         with:
          python-version: '3.8'
-      - name: Run test_function
-        run: coverage run src/test_function.py
+      - name: Run test_functions
+        run: coverage run src/test_functions.py
       - name: Run report test_functions
         run: coverage report
       - name: Run test_speed
