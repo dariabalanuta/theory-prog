@@ -56,22 +56,22 @@ def onlynumb(lines):
         return
 
 #Проверка работы программы при количестве элементов в массиве
-def test_load_f(): #элементы в диапазоне от 1 до 1000 и количество = 10 и без нуля
-    number = [random.randint(1, 1000) for i in range(10)]
-    load(number)
+def test_onlynumb_f(): #элементы в диапазоне от 1 до 1000 и количество = 10 и без нуля
+    lines = [random.randint(1, 1000) for i in range(10)]
+    onlynumb(lines)
 
-def test_load_s(): #элементы в диапазоне от 1 до 1000 и количество = 10.000 и без нуля
-    number = [random.randint(1, 1000) for i in range(10000)]
-    load(number)
+def test_onlynumb_s(): #элементы в диапазоне от 1 до 1000 и количество = 10.000 и без нуля
+    lines = [random.randint(1, 1000) for i in range(10000)]
+    onlynumb(lines)
 #без нуля так как он сокращает работу из-за умножения
 
 print('#Проверка работы программы при количестве элементов в массиве  '
       '#без нуля так как он сокращает работу из-за умножения'  )
 print()
-test_load_f()
+test_onlynumb_f()
 print('#элементы в диапазоне от 1 до 1000 и количество = 10 ')
 print()
-test_load_s()
+test_onlynumb_s()
 print('#элементы в диапазоне от 1 до 1000 и количество = 10.000 ')
 print()
 print('#Сумма указана для подтверждения того, что числа разные')
