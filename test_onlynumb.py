@@ -11,6 +11,6 @@ def onlynumb(lines):
 
 def test_onlynumb():
     lines = ['1', '4', '2', '3', '002']
-    assert(lines) == 'no latters'
+    onlynumb(lines) == 'no latters'
     lines = ['1', '4', 's', '3', '002']
-    assert(lines) == 'Mistake - there is a letter!'
+    onlynumb(lines) == 'Mistake - there is a letter!'
