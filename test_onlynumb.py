@@ -1,3 +1,4 @@
+import string
 def onlynumb(lines):
     l = list(string.ascii_letters)
 
