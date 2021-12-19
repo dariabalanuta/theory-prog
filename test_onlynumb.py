@@ -8,7 +8,7 @@ def onlynumb(lines):
     else:
         print('no latters')
 
-def test_onlynumb()
+def test_onlynumb():
     lines = ['1', '4', '2', '3', '002']
     assert(lines) == 'no latters'
     lines = ['1', '4', 's', '3', '002']
